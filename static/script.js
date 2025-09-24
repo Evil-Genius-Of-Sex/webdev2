@@ -1,3 +1,3 @@
 document.getElementById("clickMe").addEventListener("click", () => {
-    alert("Hello from JS!");
+    alert("lois, im coming");
 });
