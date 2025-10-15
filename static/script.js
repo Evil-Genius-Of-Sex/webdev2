@@ -1,3 +1,10 @@
 document.getElementById("clickMe").addEventListener("click", () => {
-    alert("lois, im coming");
-});
+
+    alert("Hello from JS!");
+
+    console.log("This goes to the Console");
+
+}); 
+
+document.getElementById("somePTag").innerHTML = "Other text"; 
+document.getElementById("firstButton").addEventListener("click", () => {});
