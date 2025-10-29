@@ -36,16 +36,19 @@ addBtn.addEventListener('click', () => {
 
     card.dataset.cardId = counter;
 
+    const text = document.getElementById('textInput').value;
+
     // the stuff that goes inside the card 
 
     card.innerHTML = ` 
 
   <h5>Card #${counter}</h5> 
 
-  <p>ambatublow </p> 
+  <p>${text}</p> 
 
   <button class="btn btn-danger deleteBtn">Delete</button> 
 
+  <button class="btn btn-outline-primary likeBtn" data-likes="0">0 ❤</button>
  `;
 
     // building the hierarchy of html 
@@ -59,3 +62,70 @@ addBtn.addEventListener('click', () => {
     counter = counter + 1;
 
 });
+
+// we attach the event listener to the entire document, instead of only a single element. 
+
+// also note that there is something in the parentheses. This is an argument for the listener function 
+
+document.addEventListener('click', (event) => {
+
+    //The event.target is the clicked element 
+
+    if (event.target.classList.contains('deleteBtn')) {
+
+        //.closest starts at the given element, and then travels to the root (<body>) of the document while looking for the specified selector (class="card").  
+
+        //It either returns the first element it finds, or null, if it finds nothing. Check the screen shot to see the search direction of "closest" for each button. 
+
+        const card = event.target.closest('.card');
+
+        // using dataset to get the id back 
+
+        console.log('Deleting card with ID:', card.dataset.cardId);
+
+        //remember, our card sits inside a <div class="col-sm-4">, which is the parent of the card. We remove that div here. 
+
+        card.parentElement.remove();
+
+    }
+
+});
+
+document.addEventListener('click', (event) => {
+
+    if (event.target.classList.contains('likeBtn')) {
+
+        const button = event.target;
+
+        button.innerHTML = parseInt(button.dataset.likes) + 1 + "❤";
+
+        button.dataset.likes = parseInt(button.dataset.likes) + 1;
+    }
+
+});
+
+let intervalID = -1;
+
+let timerToBeIncremented = 0;
+
+
+
+document.getElementById("timerStart").addEventListener("click", () => {
+
+    intervalID = setInterval(logTimer, timeout = 1000);
+
+})
+
+function logTimer() {
+
+    console.log("Time: " + timerToBeIncremented);
+
+    timerToBeIncremented += 1;
+
+    if (timerToBeIncremented > 10) {
+
+        clearInterval(intervalID);
+
+    }
+
+} 
