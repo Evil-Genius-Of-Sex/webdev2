@@ -1,8 +1,9 @@
 document.getElementById("firstButton").addEventListener("click", () => {
-
-    document.getElementById("somePTag").innerHTML = parseInt(document.getElementById("somePTag").dataset.Kirks) + 1 + "kirks";
-
-     button.dataset.Kirks = parseInt(button.dataset.Kirks) + 1;
+    let button = document.getElementById("somePTag");
+    
+    // Update the display and increment the counter
+    button.dataset.kirks = parseInt(button.dataset.kirks) + 1;
+    button.innerHTML = button.dataset.kirks + " Kirks"; // Capitalized "Kirks"
+    
+    console.log(button.dataset.kirks);
 });
-
-

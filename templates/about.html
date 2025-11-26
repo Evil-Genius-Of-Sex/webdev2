@@ -6,56 +6,74 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <meta charset="UTF-8">
-    <title>My Flask Site</title>
+    <title>Kirk Clicker</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
+    <style>
+        body {
+            background-image: url('https://scontent.flux3-1.fna.fbcdn.net/v/t39.30808-6/278458740_360154352821770_4906019428737952204_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=NFDZtr6XxesQ7kNvwFJB8Ah&_nc_oc=Admv7-d9iAyhrrKVPjf3jpoLZtGDbde4UMRqDYLaxr4Q_I-kedeApTqVH_7xJr4vXno&_nc_zt=23&_nc_ht=scontent.flux3-1.fna&_nc_gid=Y72dY-GhdFAdmhvekyuU1g&oh=00_AfgyOVuorsTRwfyxO-dqIWopRM4BsfmdscQ9llSTG4r0PQ&oe=692CB1A4');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .content-overlay {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(5px);
+        }
+        
+        .game-title {
+            font-size: 4rem;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            margin-bottom: 0;
+        }
+    </style>
 </head>
 
 <body>
     <nav class="navbar navbar-expand bg-light">
-
         <div class="container-fluid">
-
             <a class="navbar-brand" href="/">Navbar</a>
-
             <div class="navbar-collapse">
-
                 <ul class="navbar-nav me-auto">
-
                     <li class="nav-item">
-
                         <a class="nav-link active" href="/">Home</a>
-
                     </li>
-
                     <li class="nav-item">
-
                         <a class="nav-link" href="/about">About</a>
-
                     </li>
-
                 </ul>
             </div>
-
         </div>
-
     </nav>
 
+    <!-- Game Title -->
+    <div class="container-fluid text-center mt-4">
+        <h1 class="game-title text-white">KIRK CLICKER</h1>
+    </div>
 
-
-<div id="button">
-
-    <p id="somePTag" data-Kirks="0">0 kirks</p>
-
-    <button class="btn btn-primary" id="firstButton" >Kirk</button>
-
-</div>
-
- 
-
-
-
-
+    <!-- Left-aligned content -->
+    <div class="container-fluid">
+        <div class="row min-vh-100 align-items-center">
+            <div class="col-md-6 offset-md-1">
+                <div class="content-overlay">
+                    <!-- Kirk Counter -->
+                    <h1 id="somePTag" class="display-1 fw-bold mb-4 text-center" data-kirks="0">0 Kirks</h1>
+                    
+                    <!-- Clickable Image -->
+                    <div class="text-center">
+                        <img class="btn rounded" id="firstButton" 
+                             src="https://i.abcnewsfe.com/a/d5620c1a-cab8-4255-8003-b2daaaef4ea1/charlie-kirk-1-rt-gmh-250911_1757598366925_hpMain.jpg" 
+                             style="width:300px; height:300px; cursor: pointer; object-fit: cover; border: 4px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
+</html>
